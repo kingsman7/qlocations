@@ -1,4 +1,5 @@
 export default {
+  moduleName: 'ilocations',
   //Entities
   entityNames: {
     city: 'city',
