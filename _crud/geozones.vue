@@ -15,18 +15,18 @@
           apiRoute: 'apiRoutes.qlocations.geozones',
           //permission: 'icommerce.manufacturers',
           create: {
-            title: this.$tr('qlocations.layout.newGeozone'),
+            title: this.$tr('ilocations.cms.newGeozone'),
             to: {name: 'qlocations.admin.geozones.create'}
           },
           read: {
             columns: [
-              {name: 'id', label: this.$tr('ui.form.id'), field: 'id', style: 'width: 50px'},
-              {name: 'name', label: this.$tr('ui.form.name'), field: 'name', align: 'left'},
+              {name: 'id', label: this.$tr('isite.cms.form.id'), field: 'id', style: 'width: 50px'},
+              {name: 'name', label: this.$tr('isite.cms.form.name'), field: 'name', align: 'left'},
               {
-                name: 'created_at', label: this.$tr('ui.form.createdAt'), field: 'createdAt', align: 'left',
+                name: 'created_at', label: this.$tr('isite.cms.form.createdAt'), field: 'createdAt', align: 'left',
                 format: val => val ? this.$trd(val) : '-',
               },
-              {name: 'actions', label: this.$tr('ui.form.actions'), align: 'left'},
+              {name: 'actions', label: this.$tr('isite.cms.form.actions'), align: 'left'},
             ],
             //requestParams: {include: 'parent'}
             filters:{
@@ -34,7 +34,7 @@
                 value: null,
                 type: 'select',
                 props : {
-                  label: this.$tr('qlocations.layout.form.country'),
+                  label: this.$tr('ilocations.cms.form.country'),
                 },
                 loadOptions: {
                   apiRoute: 'apiRoutes.qlocations.countries',
@@ -45,7 +45,7 @@
                 value: null,
                 type: 'select',
                 props : {
-                  label: this.$tr('qlocations.layout.form.province'),
+                  label: this.$tr('ilocations.cms.form.province'),
                 },
                 loadOptions: {
                   apiRoute: 'apiRoutes.qlocations.provinces',
@@ -55,7 +55,7 @@
             }
           },
           update: {
-            title: this.$tr('qlocations.layout.updateGeozone'),
+            title: this.$tr('ilocations.cms.updateGeozone'),
             to: 'qlocations.admin.geozones.edit'
             //requestParams: {include: 'parent'}
           },

@@ -10,12 +10,12 @@
 
         <!--Form-->
         <q-form autocorrect="off" autocomplete="off" ref="formContent" class="full-width q-my-sm" v-if="locale.success"
-                @submit="itemId?updateItem():createItem()" @validation-error="$alert.error($tr('ui.message.formInvalid'))">
+                @submit="itemId?updateItem():createItem()" @validation-error="$alert.error($tr('isite.cms.message.formInvalid'))">
           <div class="row q-col-gutter-md">
             <div class="col-12 col-md-6">
               <q-input outlined dense v-model="locale.formTemplate.name"
-                       :label="`${$tr('ui.form.name')} (${locale.language})*`"
-                       :rules="[val => !!val || $tr('ui.message.fieldRequired')]"/>
+                       :label="`${$tr('isite.cms.form.name')} (${locale.language})*`"
+                       :rules="[val => !!val || $tr('isite.cms.message.fieldRequired')]"/>
             </div>
             <div class="col-12 col-md-6">
               <!--Crud countries-->
@@ -23,7 +23,7 @@
                   ref="countries"
                   :crud-data="import('@imagina/qlocations/_crud/countries')"
                   v-model="locale.formTemplate.countryId" type="select"
-                  :crud-props="{label : `${$tr('qlocations.layout.form.country')} *`, clearable: true, rules: [val => !!val || $tr('ui.message.fieldRequired')]}"
+                  :crud-props="{label : `${$tr('ilocations.cms.form.country')} *`, clearable: true, rules: [val => !!val || $tr('isite.cms.message.fieldRequired')]}"
                   :config="{options : {label : 'name', value : 'id'}}"
                   @input="()=> { if(locale.formTemplate.countryId) $refs.provinces.init() }"
                   />
@@ -34,7 +34,7 @@
                   ref="provinces"
                   :crud-data="import('@imagina/qlocations/_crud/provinces')"
                   v-model="locale.formTemplate.provinceId" type="select"
-                  :crud-props="{label : `${$tr('qlocations.layout.form.province')} *`, clearable: true, rules: [val => !!val || $tr('ui.message.fieldRequired')]}"
+                  :crud-props="{label : `${$tr('ilocations.cms.form.province')} *`, clearable: true, rules: [val => !!val || $tr('isite.cms.message.fieldRequired')]}"
                   :config="{options : {label : 'name', value : 'id'}, requestParams: {filter: {country: locale.formTemplate.countryId}}}"
                   @input="()=> { if(locale.formTemplate.provinceId) $refs.cities.init() }"
                   />
@@ -47,7 +47,7 @@
                       ref="cities"
                       :crud-data="import('@imagina/qlocations/_crud/cities')"
                       v-model="locale.formTemplate.cityId" type="select"
-                      :crud-props="{label : `${$tr('qlocations.layout.form.city')} *`, clearable: true, rules: [val => !!val || $tr('ui.message.fieldRequired')]}"
+                      :crud-props="{label : `${$tr('ilocations.cms.form.city')} *`, clearable: true, rules: [val => !!val || $tr('isite.cms.message.fieldRequired')]}"
                       :custom-data="{create: false}"
                       :config="{options : {label : 'name', value : 'id'}, requestParams: {filter: {province_id: locale.formTemplate.provinceId}}}"
                   />
@@ -55,7 +55,7 @@
                 <div class="col-4 col-md-2 text-right">
                   <q-btn size="sm" class="btn-small" color="green" icon="fas fa-plus" @click="showCityCreate = true">
                     <q-tooltip :offset="[10, 10]">
-                      {{ $tr('qlocations.layout.newCity') }}
+                      {{ $tr('ilocations.cms.newCity') }}
                     </q-tooltip>
                   </q-btn>
                 </div>
@@ -67,10 +67,10 @@
                   :offset="[18, 18]">
             <!--Update button-->
             <q-btn v-if="$route.params.id" color="green" :loading="loading"
-                   icon="fas fa-edit" :label="$tr('ui.label.update')" type="submit"/>
+                   icon="fas fa-edit" :label="$tr('isite.cms.label.update')" type="submit"/>
             <!--Save button-->
             <q-btn v-else color="green" :loading="loading" icon="fas fa-edit"
-                   :label="$tr('ui.label.create')" type="submit"/>
+                   :label="$tr('isite.cms.label.create')" type="submit"/>
           </q-page-sticky>
         </q-form>
       </div>
@@ -82,7 +82,7 @@
         <!--Header-->
         <q-toolbar class="bg-primary text-white">
           <q-toolbar-title>
-            <label>{{$tr('qlocations.layout.newCity')}}</label>
+            <label>{{$tr('ilocations.cms.newCity')}}</label>
           </q-toolbar-title>
           <q-btn flat v-close-popup icon="fas fa-times"/>
         </q-toolbar>
@@ -175,7 +175,7 @@
               this.getCities()
               resolve(true)//Resolve
             }).catch(error => {
-              this.$alert.error({message: this.$tr('ui.message.errorRequest'), pos: 'bottom'})
+              this.$alert.error({message: this.$tr('isite.cms.message.errorRequest'), pos: 'bottom'})
               this.loading = false
               reject(false)//Resolve
             })
@@ -193,12 +193,12 @@
           this.loading = true
           let configName = 'apiRoutes.qlocations.neighborhoods'
           this.$crud.update(configName, this.itemId, this.getDataForm()).then(response => {
-            this.$alert.success({message: `${this.$tr('ui.message.recordUpdated')}`})
+            this.$alert.success({message: `${this.$tr('isite.cms.message.recordUpdated')}`})
             //this.initForm()
             this.loading = false
           }).catch(error => {
             this.loading = false
-            this.$alert.error({message: this.$tr('ui.message.recordNoUpdated'), pos: 'bottom'})
+            this.$alert.error({message: this.$tr('isite.cms.message.recordNoUpdated'), pos: 'bottom'})
           })
         }
       },
@@ -207,13 +207,13 @@
           this.loading = true
           let configName = 'apiRoutes.qlocations.neighborhoods'
           this.$crud.create(configName, this.getDataForm()).then(response => {
-            this.$alert.success({message: `${this.$tr('ui.message.recordCreated')}`})
+            this.$alert.success({message: `${this.$tr('isite.cms.message.recordCreated')}`})
             this.$router.push({name: 'qlocations.admin.neighborhoods.index'})
             //this.initForm()
             this.loading = false
           }).catch(error => {
             this.loading = false
-            this.$alert.error({message: this.$tr('ui.message.recordNoUpdated'), pos: 'bottom'})
+            this.$alert.error({message: this.$tr('isite.cms.message.recordNoUpdated'), pos: 'bottom'})
           })
         }
       },

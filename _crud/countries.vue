@@ -15,23 +15,23 @@
           apiRoute: 'apiRoutes.qlocations.countries',
           //permission: 'icommerce.manufacturers',
           create: {
-            title: this.$tr('qlocations.layout.newCountry'),
+            title: this.$tr('ilocations.cms.newCountry'),
             //to: {name: 'qcommerce.admin.taxRates.create'}
           },
           read: {
             columns: [
-              {name: 'id', label: this.$tr('ui.form.id'), field: 'id', style: 'width: 50px'},
-              {name: 'name', label: this.$tr('ui.form.name'), field: 'name', align: 'left'},
+              {name: 'id', label: this.$tr('isite.cms.form.id'), field: 'id', style: 'width: 50px'},
+              {name: 'name', label: this.$tr('isite.cms.form.name'), field: 'name', align: 'left'},
               {
-                name: 'created_at', label: this.$tr('ui.form.createdAt'), field: 'createdAt', align: 'left',
+                name: 'created_at', label: this.$tr('isite.cms.form.createdAt'), field: 'createdAt', align: 'left',
                 format: val => val ? this.$trd(val) : '-',
               },
-              {name: 'actions', label: this.$tr('ui.form.actions'), align: 'left'},
+              {name: 'actions', label: this.$tr('isite.cms.form.actions'), align: 'left'},
             ],
             //requestParams: {include: 'parent'}
           },
           update: {
-            title: this.$tr('qlocations.layout.updateCountry'),
+            title: this.$tr('ilocations.cms.updateCountry'),
             //to: 'qcommerce.admin.taxRates.edit'
             //requestParams: {include: 'parent'}
           },
@@ -43,9 +43,9 @@
               type: 'input',
               isTranslatable: true,
               props : {
-                label: `${this.$tr('ui.form.name')}*`,
+                label: `${this.$tr('isite.cms.form.name')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -54,9 +54,9 @@
               type: 'input',
               isTranslatable: true,
               props : {
-                label: `${this.$tr('qlocations.layout.form.fullName')}*`,
+                label: `${this.$tr('ilocations.cms.form.fullName')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -65,13 +65,13 @@
               type: 'select',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('ui.form.status')}*`,
+                label: `${this.$tr('isite.cms.form.status')}*`,
                 options : [
-                  {label: this.$tr('ui.label.enabled'), value: 1},
-                  {label: this.$tr('ui.label.disabled'), value: 0}
+                  {label: this.$tr('isite.cms.label.enabled'), value: 1},
+                  {label: this.$tr('isite.cms.label.disabled'), value: 0}
                 ],
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -80,9 +80,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.regionCode')}*`,
+                label: `${this.$tr('ilocations.cms.form.regionCode')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -91,9 +91,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.subRegionCode')}*`,
+                label: `${this.$tr('ilocations.cms.form.subRegionCode')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -102,9 +102,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.countryCode')}*`,
+                label: `${this.$tr('ilocations.cms.form.countryCode')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -113,9 +113,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.callingCode')}*`,
+                label: `${this.$tr('ilocations.cms.form.callingCode')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -126,9 +126,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.currency')}*`,
+                label: `${this.$tr('ilocations.cms.form.currency')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -137,9 +137,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.currencySymbol')}*`,
+                label: `${this.$tr('ilocations.cms.form.currencySymbol')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -148,9 +148,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.currencyCode')}*`,
+                label: `${this.$tr('ilocations.cms.form.currencyCode')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -159,9 +159,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.currencySubUnit')}*`,
+                label: `${this.$tr('ilocations.cms.form.currencySubUnit')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -170,9 +170,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.iso2')}*`,
+                label: `${this.$tr('ilocations.cms.form.iso2')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },
@@ -181,9 +181,9 @@
               type: 'input',
               isTranslatable: false,
               props : {
-                label: `${this.$tr('qlocations.layout.form.iso3')}*`,
+                label: `${this.$tr('ilocations.cms.form.iso3')}*`,
                 rules: [
-                  val => !!val || this.$tr('ui.message.fieldRequired')
+                  val => !!val || this.$tr('isite.cms.message.fieldRequired')
                 ],
               }
             },

@@ -10,14 +10,14 @@
 
         <!--Form-->
         <q-form autocorrect="off" autocomplete="off" ref="formContent" class="full-width q-my-sm" v-if="locale.success"
-                @submit="itemId?updateItem():createItem()" @validation-error="$alert.error($tr('ui.message.formInvalid'))">
+                @submit="itemId?updateItem():createItem()" @validation-error="$alert.error($tr('isite.cms.message.formInvalid'))">
           <div class="row q-col-gutter-md">
             <div class="col-12">
               <q-input outlined dense v-model="locale.formTemplate.name"
-                       :label="`${$tr('ui.form.name')} (${locale.language})*`"
-                       :rules="[val => !!val || $tr('ui.message.fieldRequired')]"/>
-              <div class="input-title">{{ `${$tr('ui.form.description')} (${locale.language})*` }}</div>
-              <q-field borderless v-model="locale.formTemplate.description" :rules="[val => !!val || $tr('ui.message.fieldRequired')]">
+                       :label="`${$tr('isite.cms.form.name')} (${locale.language})*`"
+                       :rules="[val => !!val || $tr('isite.cms.message.fieldRequired')]"/>
+              <div class="input-title">{{ `${$tr('isite.cms.form.description')} (${locale.language})*` }}</div>
+              <q-field borderless v-model="locale.formTemplate.description" :rules="[val => !!val || $tr('isite.cms.message.fieldRequired')]">
                 <q-editor class="full-width" v-model="locale.formTemplate.description"/>
               </q-field>
             </div>
@@ -37,10 +37,10 @@
                   :offset="[18, 18]">
             <!--Update button-->
             <q-btn v-if="$route.params.id" color="green" :loading="loading"
-                   icon="fas fa-edit" :label="$tr('ui.label.update')" type="submit"/>
+                   icon="fas fa-edit" :label="$tr('isite.cms.label.update')" type="submit"/>
             <!--Save button-->
             <q-btn v-else color="green" :loading="loading" icon="fas fa-edit"
-                   :label="$tr('ui.label.create')" type="submit"/>
+                   :label="$tr('isite.cms.label.create')" type="submit"/>
           </q-page-sticky>
         </q-form>
       </div>
@@ -153,7 +153,7 @@
               this.orderDataItemToLocale(response.data)
               resolve(true)//Resolve
             }).catch(error => {
-              this.$alert.error({message: this.$tr('ui.message.errorRequest'), pos: 'bottom'})
+              this.$alert.error({message: this.$tr('isite.cms.message.errorRequest'), pos: 'bottom'})
               this.loading = false
               reject(false)//Resolve
             })
@@ -174,12 +174,12 @@
           this.loading = true
           let configName = 'apiRoutes.qlocations.polygons'
           this.$crud.update(configName, this.itemId, this.getDataForm()).then(response => {
-            this.$alert.success({message: `${this.$tr('ui.message.recordUpdated')}`})
+            this.$alert.success({message: `${this.$tr('isite.cms.message.recordUpdated')}`})
             //this.initForm()
             this.loading = false
           }).catch(error => {
             this.loading = false
-            this.$alert.error({message: this.$tr('ui.message.recordNoUpdated'), pos: 'bottom'})
+            this.$alert.error({message: this.$tr('isite.cms.message.recordNoUpdated'), pos: 'bottom'})
           })
         }
       },
@@ -188,13 +188,13 @@
           this.loading = true
           let configName = 'apiRoutes.qlocations.polygons'
           this.$crud.create(configName, this.getDataForm()).then(response => {
-            this.$alert.success({message: `${this.$tr('ui.message.recordCreated')}`})
+            this.$alert.success({message: `${this.$tr('isite.cms.message.recordCreated')}`})
             this.$router.push({name: 'qlocations.admin.polygons.index'})
             //this.initForm()
             this.loading = false
           }).catch(error => {
             this.loading = false
-            this.$alert.error({message: this.$tr('ui.message.recordNoUpdated'), pos: 'bottom'})
+            this.$alert.error({message: this.$tr('isite.cms.message.recordNoUpdated'), pos: 'bottom'})
           })
         }
       },

@@ -3,7 +3,7 @@ const pages = config('pages') // Get Pages from config
 //E-commerce
 export default [
   {
-    title: 'qlocations.sidebar.adminGroup',
+    title: 'ilocations.cms.sidebar.adminGroup',
     icon: 'fas fa-atlas',
     children: [
       //pages.qlocations.countries,

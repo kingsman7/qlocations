@@ -15,33 +15,33 @@ export default {
         apiRoute: 'apiRoutes.qlocations.neighborhoods',
         permission: 'ilocations.neighborhoods',
         create: {
-          title: this.$tr('qlocations.layout.newNeighborhood')
+          title: this.$tr('ilocations.cms.newNeighborhood')
         },
         read: {
           columns: [
-            {name: 'id', label: this.$tr('ui.form.id'), field: 'id', style: 'width: 50px'},
-            {name: 'name', label: this.$tr('ui.form.name'), field: 'name', align: 'left'},
+            {name: 'id', label: this.$tr('isite.cms.form.id'), field: 'id', style: 'width: 50px'},
+            {name: 'name', label: this.$tr('isite.cms.form.name'), field: 'name', align: 'left'},
             {
-              name: 'city', label: this.$tr('ui.form.city'), field: 'city', align: 'left',
+              name: 'city', label: this.$tr('isite.cms.form.city'), field: 'city', align: 'left',
               format: val => val ? val.name : '-',
             },
             {
-              name: 'province', label: this.$tr('qlocations.layout.form.province'), field: 'province', align: 'left',
+              name: 'province', label: this.$tr('ilocations.cms.form.province'), field: 'province', align: 'left',
               format: val => val ? val.name : '-',
             },
             {
-              name: 'country', label: this.$tr('ui.label.country'), field: 'country', align: 'left',
+              name: 'country', label: this.$tr('isite.cms.label.country'), field: 'country', align: 'left',
               format: val => val ? val.name : '-',
             },
             {
-              name: 'created_at', label: this.$tr('ui.form.createdAt'), field: 'createdAt', align: 'left',
+              name: 'created_at', label: this.$tr('isite.cms.form.createdAt'), field: 'createdAt', align: 'left',
               format: val => val ? this.$trd(val) : '-',
             },
             {
-              name: 'updatedAt', label: this.$tr('ui.form.updatedAt'), field: 'updatedAt', align: 'left',
+              name: 'updatedAt', label: this.$tr('isite.cms.form.updatedAt'), field: 'updatedAt', align: 'left',
               format: val => val ? this.$trd(val) : '-',
             },
-            {name: 'actions', label: this.$tr('ui.form.actions'), align: 'left'},
+            {name: 'actions', label: this.$tr('isite.cms.form.actions'), align: 'left'},
           ],
           requestParams: {include: 'city,province,country'},
           filters: {
@@ -49,7 +49,7 @@ export default {
               value: null,
               type: 'select',
               props: {
-                label: this.$tr('qlocations.layout.form.country'),
+                label: this.$tr('ilocations.cms.form.country'),
                 clearable: true
               },
               loadOptions: {
@@ -61,7 +61,7 @@ export default {
               value: null,
               type: 'select',
               props: {
-                label: this.$tr('qlocations.layout.form.province'),
+                label: this.$tr('ilocations.cms.form.province'),
                 clearable: true
               },
               loadOptions: {
@@ -73,7 +73,7 @@ export default {
               value: null,
               type: 'select',
               props: {
-                label: this.$tr('ui.form.city'),
+                label: this.$tr('isite.cms.form.city'),
                 clearable: true
               },
               loadOptions: {
@@ -84,7 +84,7 @@ export default {
           }
         },
         update: {
-          title: this.$tr('qlocations.layout.updateNeighborhood'),
+          title: this.$tr('ilocations.cms.updateNeighborhood'),
           requestParams: {include: 'city,province,country'}
         },
         delete: true,
@@ -95,7 +95,7 @@ export default {
             required: true,
             isTranslatable: true,
             props: {
-              label: `${this.$tr('ui.form.name')}*`
+              label: `${this.$tr('isite.cms.form.name')}*`
             }
           },
           countryId: {
@@ -103,7 +103,7 @@ export default {
             type: 'select',
             required: true,
             props: {
-              label: `${this.$tr('ui.label.country')}*`
+              label: `${this.$tr('isite.cms.label.country')}*`
             },
             loadOptions: {
               apiRoute: 'apiRoutes.qlocations.countries',
@@ -116,7 +116,7 @@ export default {
             type: 'select',
             required: true,
             props: {
-              label: `${this.$tr('qlocations.layout.form.province')}*`,
+              label: `${this.$tr('ilocations.cms.form.province')}*`,
               readonly: (this.crudInfo.countryId ? false : true)
             },
             loadOptions: {
@@ -131,7 +131,7 @@ export default {
             type: 'select',
             required: true,
             props: {
-              label: `${this.$tr('ui.form.city')}*`,
+              label: `${this.$tr('isite.cms.form.city')}*`,
               readonly: (this.crudInfo.provinceId ? false : true)
             },
             loadOptions: {
