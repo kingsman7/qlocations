@@ -1,0 +1,186 @@
+{
+  "crudId": "ilocations-crud-neighborhoods",
+  "entityName": "neighborhood",
+  "apiRoute": "/v2/ilocations/neighborhoods",
+  "permission": "ilocations.neighborhoods",
+  "create": {
+    "title":"ilocations.cms.newNeighborhood"
+  },
+  "read": {
+    "columns": [
+      {
+        "name": "id",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.id"
+        },
+        "field": "id",
+        "align": "left",
+        "style": "width: 50px",
+        "sortable": false
+      },
+      {
+        "name": "name",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.name"
+        },
+        "field": "name",
+        "sortable": false,
+        "align": "right"
+      },
+      {
+        "name": "city",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.city"
+        },
+        "field": "city",
+        "sortable": false,
+        "align": "left",
+        "format":{
+          "type":"str",
+          "child":["name"]
+        }
+      },
+      {
+        "name": "province",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.province"
+        },
+        "field": "province",
+        "sortable": false,
+        "align": "left",
+        "format":{
+          "type":"str",
+          "child":["name"]
+        }
+      },
+      {
+        "name": "country",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.label.country"
+        },
+        "field": "country",
+        "sortable": false,
+        "align": "left",
+        "format":{
+          "type":"str",
+          "child":["name"]
+        }
+      },
+      {
+        "name": "created_at",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.createdAt"
+        },
+        "field": "createdAt",
+        "sortable": false,
+        "align": "right",
+        "format":{
+          "type":"date",
+          "includes": {
+            "type":"long"
+          }
+        }
+      },
+      {
+        "name": "updated_at",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.updatedAt"
+        },
+        "field": "updatedAt",
+        "sortable": false,
+        "align": "right",
+        "format":{
+          "type":"date",
+          "includes": {
+            "type":"long"
+          }
+        }
+      },
+      {
+        "name": "actions",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.actions"
+        },
+        "field": "actions",
+        "sortable": false,
+        "align": "left"
+      }
+    ],
+    "requestParams": {
+      "include": "city,province,country"
+    },
+    "filters":[
+    {
+      "filterName": "countryId",
+      "value": null,
+      "type": "select",
+      "props": {
+        "label": {
+          "isTranslatable": {
+            "type": "singular",
+            "value": "ilocations.cms.form.country"
+          },
+          "clearable":true
+        }
+      },
+      "loadOptions": {
+        "apiRoute": "/ilocations/v2/countries",
+        "select": {"label": "name", "id": "id"}
+      }
+    },
+    {
+      "filterName": "provinceId",
+      "value": null,
+      "type": "select",
+      "props": {
+        "label": {
+          "isTranslatable": {
+            "type": "singular",
+            "value": "ilocations.cms.form.province"
+          }
+        }
+      },
+      "loadOptions": {
+        "apiRoute": "/ilocations/v2/provinces",
+        "select": {"label": "name", "id": "id"}
+      }
+    },
+    {
+      "filterName": "cityId",
+      "value": null,
+      "type": "select",
+      "props": {
+        "label": {
+          "isTranslatable": {
+            "type": "singular",
+            "value": "isite.cms.form.city"
+          }
+        },
+        "clearable":true
+      },
+      "loadOptions": {
+        "apiRoute": "/ilocations/v2/cities",
+        "select": {"label": "name", "id": "id"}
+      }
+    }
+    ]
+  },  
+  "update": {
+    "title":{
+      "isTranslatable":{
+        "type":"singular",
+        "value": "ilocations.cms.updateNeighborhood"
+      } 
+    },
+    "requestParams": {"include": "city,province,country"}
+  },
+  "delete": true
+}

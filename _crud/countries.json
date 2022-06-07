@@ -1,0 +1,66 @@
+{
+  "crudId": "ilocations-crud-countries",
+  "entityName": "country",
+  "apiRoute": "/v2/ilocations/countries",
+  "permission": "",
+  "extraFormFields": "",
+  "create": {
+    "title":"ilocations.cms.newCountry"
+  },
+  "read": {
+    "columns": [
+      {
+        "name": "id",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.id"
+        },
+        "field": "id",
+        "align": "left",
+        "style": "width: 50px",
+        "sortable": false
+      },
+      {
+        "name": "name",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.name"
+        },
+        "field": "name",
+        "sortable": false,
+        "align": "right"
+      },
+      {
+        "name": "created_at",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.createdAt"
+        },
+        "field": "createdAt",
+        "sortable": false,
+        "align": "right",
+        "format":{
+          "type":"date",
+          "includes": {
+            "type":"long"
+          }
+        }
+      },
+      {
+        "name": "actions",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.actions"
+        },
+        "field": "actions",
+        "sortable": false,
+        "align": "left"
+      }
+    ],
+    "requestParams": {}
+  },  
+  "update": {
+    "title": "ilocations.cms.updateCountry"    
+  },
+  "delete": true
+}

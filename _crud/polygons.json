@@ -1,0 +1,69 @@
+{
+  "crudId": "ilocations-crud-polygon",
+  "entityName": "polygon",
+  "apiRoute": "/v2/ilocations/polygon",
+  "permission": "",
+  "extraFormFields": "",
+  "create": {
+    "title":"ilocations.cms.newCity",
+    "to": {"name": "qlocations.admin.polygons.create"}
+  },
+  "read": {
+    "columns": [
+      {
+        "name": "id",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.id"
+        },
+        "field": "id",
+        "align": "left",
+        "style": "width: 50px",
+        "sortable": false
+      },
+      {
+        "name": "name",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.name"
+        },
+        "field": "name",
+        "sortable": false,
+        "align": "right"
+      },
+      {
+        "name": "created_at",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.createdAt"
+        },
+        "field": "createdAt",
+        "sortable": false,
+        "align": "right",
+        "format":{
+          "type":"date",
+          "includes": {
+            "type":"long"
+          }
+        }
+      },
+      {
+        "name": "actions",
+        "label": {
+          "isTranslatable": "singular",
+          "value": "isite.cms.form.actions"
+        },
+        "field": "actions",
+        "sortable": false,
+        "align": "left"
+      }
+    ],
+    "requestParams": {}
+  },
+  "filters":[],
+  "update": {
+    "title": "ilocations.cms.updatePolygon",
+    "to": "qlocations.admin.polygons.edit"
+  },
+  "delete": true
+}

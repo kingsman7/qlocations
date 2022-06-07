@@ -1,7 +1,14 @@
-<template></template>
+<template>
+  <config-crud ref="configCrud" />
+</template>
 
 <script>
+import configCrud from "@imagina/qcrud/_config/CrudConfig"
+import Json from "@imagina/qlocations/_crud/polygons.json"
   export default {
+    components:{
+      configCrud
+    },
     data() {
       return {
         crudId: this.$uid()
@@ -10,7 +17,8 @@
     computed: {
       crudData() {
         return {
-          crudId: this.crudId,
+          ...this.$refs.configCrud.getData(Json),
+        /*  crudId: this.crudId,
           entityName: config("main.qlocations.entityNames.polygon"),
           apiRoute: 'apiRoutes.qlocations.polygons',
           //permission: 'icommerce.manufacturers',
@@ -27,7 +35,7 @@
                 format: val => val ? this.$trd(val) : '-',
               },
               {name: 'actions', label: this.$tr('isite.cms.form.actions'), align: 'left'},
-            ],
+            ],*/
             //requestParams: {include: 'parent'}
             /*filters:{
               country: {
@@ -52,14 +60,14 @@
                   select: {label: 'name', id: 'id'},
                 }
               },
-            }*/
+            }
           },
-          update: {
+          /*update: {
             title: this.$tr('ilocations.cms.updatePolygon'),
             to: 'qlocations.admin.polygons.edit'
             //requestParams: {include: 'parent'}
           },
-          delete: true,
+          delete: true,*/
           /*formLeft: {
           },
           /*formRight: {

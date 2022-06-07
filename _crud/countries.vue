@@ -1,7 +1,14 @@
-<template></template>
+<template>
+  <config-crud ref="configCrud" />
+</template>
 
 <script>
+import configCrud from "@imagina/qcrud/_config/CrudConfig"
+import Json from "@imagina/qlocations/_crud/countries.json"
   export default {
+    components:{
+      configCrud
+    },
     data() {
       return {
         crudId: this.$uid()
@@ -10,7 +17,8 @@
     computed: {
       crudData() {
         return {
-          crudId: this.crudId,
+          ...this.$refs.configCrud.getData(Json),
+         /* crudId: this.crudId,
           entityName: config("main.qlocations.entityNames.country"),
           apiRoute: 'apiRoutes.qlocations.countries',
           //permission: 'icommerce.manufacturers',
@@ -35,7 +43,7 @@
             //to: 'qcommerce.admin.taxRates.edit'
             //requestParams: {include: 'parent'}
           },
-          delete: true,
+          delete: true,*/
           formLeft: {
             id: {value: ''},
             name: {

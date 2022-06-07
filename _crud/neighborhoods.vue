@@ -1,7 +1,14 @@
-<template></template>
+<template>
+  <config-crud ref="configCrud" />
+</template>
 
 <script>
+import configCrud from "@imagina/qcrud/_config/CrudConfig"
+import Json from "@imagina/qlocations/_crud/neighborhoods.json"
 export default {
+  components:{
+    configCrud
+  },
   data() {
     return {
       crudId: this.$uid()
@@ -9,8 +16,10 @@ export default {
   },
   computed: {
     crudData() {
+      console.log("locations",this.$refs.configCrud.getData(Json) )
       return {
-        crudId: this.crudId,
+        ...this.$refs.configCrud.getData(Json),
+      /*  crudId: this.crudId,
         entityName: config("main.qlocations.entityNames.neighborhood"),
         apiRoute: 'apiRoutes.qlocations.neighborhoods',
         permission: 'ilocations.neighborhoods',
@@ -87,7 +96,7 @@ export default {
           title: this.$tr('ilocations.cms.updateNeighborhood'),
           requestParams: {include: 'city,province,country'}
         },
-        delete: true,
+        delete: true,*/
         formLeft: {
           name: {
             value: null,
